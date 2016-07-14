@@ -6,22 +6,23 @@ class Application:
 		self._config = configparser.ConfigParser()
 		self._config.read_file(open(cfg_file))
 
-	def run():
+	def Run(self):
 		while(True):
 			pass
 
-	def shutdown():
-		pass
+	def Shutdown(self):
+		print("\nClosing Stocktally")
 			
 
 def main():
 	try:
 		app = Application("config.cfg")
+		app.Run()
 	except FileNotFoundError:
 		print("\nconfig.cfg not found\n")
 		print("Verify that config.cfg exists, before retrying\n")
 	except KeyboardInterrupt:
-		app.shutdown()
+		app.Shutdown()
 
 if __name__=="__main__": main()
 
