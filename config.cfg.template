@@ -1,0 +1,7 @@
+[DEFAULT]
+
+#location where stocktally is installed.
+install_dir=<install_dir>
+
+#location of modules.
+modules=%(install_dir)s/modules
