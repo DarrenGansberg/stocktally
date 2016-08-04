@@ -20,7 +20,7 @@ class Application(object):
 		#GetMessage() returns, quit on MSG_QUIT otherwise process message.
 		while True:
 			msg = self.GetMessage()
-			if msg.GetId() == messaging.MSG_QUIT:
+			if (msg.GetId() == messaging.MSG_COMMAND) and (msg.GetCommand() == messaging.COMMAND_QUIT):			
 				break
 			else:
 				self.ProcessMessage(msg)
