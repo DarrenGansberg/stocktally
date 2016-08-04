@@ -25,9 +25,16 @@ class KeyPressed(Message):
 
 class Command(Message):
 		def __init__(self, command):
-			super(Message,self).__init__(MSG_COMMAND)
+			super(Command,self).__init__(MSG_COMMAND)
 			self._command = command
 
 		def GetCommand(self):
 			return self._command
-	
+
+class MessageError(Exception):
+	def __init__(self, message):
+		self.message = message
+
+class MessageHandler(object):
+	def ProcessMessage(self, msg):
+		raise MessageError("ProcessMessage not implemented")
