@@ -17,8 +17,8 @@ class Stocktally(Application):
 
 	def DisplayMainMenu(self):
 		self._display.PrintString("Stocktally main menu: \n")
-		self._display.PrintString("1. Update stock counts \n")
-		self._display.PrintString("2. Exit program \n")
+		self._display.PrintString("1. Update stock counts. \n")
+		self._display.PrintString("2. Exit program. \n")
 		self._display.PrintString("Enter Selection: \n")
 
 
