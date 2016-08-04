@@ -9,6 +9,7 @@ class Keypad(object):
 			raise Exception("callback cannot be None")
 		self._callback = callback
 		self._thread = threading.Thread(None, self._Read)
+		self._thread.daemon = True
 
 	def _Read(self):
 		pass
