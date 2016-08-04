@@ -2,8 +2,14 @@
 import threading
 import messaging
 
+class InputError(Exception):
+	def __init__(self, message):
+		self.message = message
+
 class Keyboard:
 	def __init__(self, callback):
+		if callback is None:
+			raise InputError
 		self._callback = callback
 		self._thread = threading.Thread(None, self._Read)
 		self._thread.daemon = True 
@@ -16,7 +22,7 @@ class Keyboard:
 				self._callback(messaging.Command(messaging.COMMAND_QUIT))
 				break
 			else:
-				msg = messaging.KeyPressed(self._getch())
+				msg = messaging.KeyPressed(c)
 				self._callback(msg)
 
 	def Start(self):
@@ -59,4 +65,3 @@ class _GetchWindows:
     def __call__(self):
         import msvcrt
         return msvcrt.getch()
-
