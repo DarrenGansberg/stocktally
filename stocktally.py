@@ -13,6 +13,7 @@ def main():
 		app = Application("config.cfg")
 		console = Console(app)
 		console.DisplayStartupMessage()
+		console.DisplayMainMenu()
 		app.Run()
 	except FileNotFoundError:
 		print("\nconfig.cfg not found\n")
